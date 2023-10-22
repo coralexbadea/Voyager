@@ -1,5 +1,5 @@
-function failedCraftFeedback(bot, name, item, craftingTable) {
-    const recipes = bot.recipesAll(item.id, null, craftingTable);
+function failedCraftFeedback(bot, name, item, craftingTable) { // function failed craft feedback bot name item crafting Table
+    const recipes = bot.recipesAll(item.id, null, craftingTable); // recipes = bot.recipesAll item.id null, craftingTable
     if (!recipes.length) {
         throw new Error(`No crafting table nearby`);
     } else {

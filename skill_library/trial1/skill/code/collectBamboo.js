@@ -4,13 +4,13 @@ async function collectBamboo(bot) {
   await bot.equip(ironSword, "hand");
 
   // Find bamboo plants using the exploreUntil function
-  const bambooPlants = await exploreUntil(bot, new Vec3(1, 0, 1), 60, () => {
-    const bambooPlants = bot.findBlocks({
-      matching: block => block.name === "bamboo",
-      maxDistance: 32,
-      count: 10
+  const bambooPlants = await exploreUntil(bot, new Vec3(1, 0, 1), 60, () => { // bamboo plants  = we have to explore from bot to x,y,z for 60 seconds so its good we have y = 0
+    const bambooPlants = bot.findBlocks({ // find blocks
+      matching: block => block.name === "bamboo", // match block name
+      maxDistance: 32, // in distance 32
+      count: 10 // count to be 10
     });
-    return bambooPlants.length >= 10 ? bambooPlants : null;
+    return bambooPlants.length >= 10 ? bambooPlants : null; //  specific requiremnets bamboo plants
   });
   if (!bambooPlants) {
     bot.chat("Could not find enough bamboo plants.");
